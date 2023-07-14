@@ -52,6 +52,7 @@ public class PropondoLanceSteps {
 	@Before
 	public void setup() {
 		this.lista = new ArrayList<Lance>();
+		leilao = new Leilao("Tablet0001");
 	}
 	
 	@Dado("um lance de {double} reais do usuario {string}")
@@ -63,15 +64,14 @@ public class PropondoLanceSteps {
 	
 	@Quando(" propoe varios lances ao leilao")
 	public void quando_propoe_varios_lances_ao_leilao() {
-		leilao.propoe(lance10);
-		leilao.propoe(lance15);
+		this.lista.forEach(lance -> leilao.propoe(lance));
 	}
 	
 	@Entao(" os lances sao aceitos")
 	public void entao_os_lances_sao_aceitos() {
-		Assert.assertEquals(2, leilao.getLances().size());
-		Assert.assertEquals(BigDecimal.TEN, leilao.getLances().get(0).getValor());
-		Assert.assertEquals(new BigDecimal("15.0"), leilao.getLances().get(1).getValor());
+		Assert.assertEquals(this.lista.size(), leilao.getLances().size());
+		Assert.assertEquals(this.lista.get(0).getValor(), leilao.getLances().get(0).getValor());
+		Assert.assertEquals(this.lista.get(1).getValor(), leilao.getLances().get(1).getValor());
 	}
 	
 }
