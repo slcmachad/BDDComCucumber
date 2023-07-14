@@ -22,13 +22,32 @@ public class PropondoLanceSteps {
 		new Lance(usuario, BigDecimal.TEN);
 	}
 	
-	@Quando(" propoe o lance")
+	@Quando(" propoe ao leilao")
 	public void quando_propoe_o_lance() {
 		Leilao leilao = new Leilao("Tablet0001");
 		leilao.propoe(lance);
 	}
 	
 	@Entao(" o lance eh acheito")
+	public void entao_o_lance_eh_aceito() {
+		Assert.assertEquals(1, leilao.getLances().size());
+		Assert.assertEquals(BigDecimal.TEN, leilao.getLances().get(0).getValor());
+		
+	}
+	
+	@Dado(" varios lances validos")
+	public void dado_um_lance_valido() {
+		Usuario usuario = new Usuario("fulano");
+		new Lance(usuario, BigDecimal.TEN);
+	}
+	
+	@Quando(" propoe varios lances ao leilao")
+	public void quando_propoe_o_lance() {
+		Leilao leilao = new Leilao("Tablet0001");
+		leilao.propoe(lance);
+	}
+	
+	@Entao(" os lances sao aceitos")
 	public void entao_o_lance_eh_aceito() {
 		Assert.assertEquals(1, leilao.getLances().size());
 		Assert.assertEquals(BigDecimal.TEN, leilao.getLances().get(0).getValor());
