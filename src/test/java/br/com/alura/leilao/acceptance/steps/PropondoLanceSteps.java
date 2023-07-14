@@ -8,6 +8,7 @@ import org.junit.Assert;
 import br.com.alura.leilao.model.Lance;
 import br.com.alura.leilao.model.Leilao;
 import br.com.alura.leilao.model.Usuario;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Quando;
@@ -16,16 +17,24 @@ import io.cucumber.java.pt.Entao;
 public class PropondoLanceSteps {
 
 	private Lance lance;
-	private Lance lance10;
-	private Lance lance15;
 	private Leilao leilao;
 	private ArrayList<Lance> lista;
+
+	@Before
+	public void setup() {
+		this.lista = new ArrayList<Lance>();
+		leilao = new Leilao("Tablet0001");
+	}
+	
+	@After
+	public void tearDown() {
+		
+	}
 	
 	@Dado(" um lance valido")
 	public void dado_um_lance_valido() {
 		Usuario usuario = new Usuario("fulano");
 		new Lance(usuario, BigDecimal.TEN);
-		Leilao leilao = new Leilao("Tablet0001");
 	}
 	
 	@Quando(" propoe ao leilao")
@@ -49,11 +58,6 @@ public class PropondoLanceSteps {
 //		leilao = new Leilao("Tablet0001");
 //	}
 	
-	@Before
-	public void setup() {
-		this.lista = new ArrayList<Lance>();
-		leilao = new Leilao("Tablet0001");
-	}
 	
 	@Dado("um lance de {double} reais do usuario {string}")
 	public void dado_um_lance_de_reais_do_usuario_fulano(Double valor, String nomeUsuario) {
