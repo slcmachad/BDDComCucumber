@@ -13,6 +13,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Quando;
 import io.cucumber.java.pt.Entao;
+import io.cucumber.java.pt.Então;
 
 public class PropondoLanceSteps {
 
@@ -31,18 +32,18 @@ public class PropondoLanceSteps {
 		
 	}
 	
-	@Dado(" um lance valido")
+	@Dado("um lance valido")
 	public void dado_um_lance_valido() {
 		Usuario usuario = new Usuario("fulano");
-		new Lance(usuario, BigDecimal.TEN);
+		lance = new Lance(usuario, BigDecimal.TEN);
 	}
 	
-	@Quando(" propoe ao leilao")
+	@Quando("propoe ao leilao")
 	public void quando_propoe_o_lance() {
 		leilao.propoe(lance);
 	}
 	
-	@Entao(" o lance eh acheito")
+	@Entao("o lance eh aceito")
 	public void entao_o_lance_eh_aceito() {
 		Assert.assertEquals(1, leilao.getLances().size());
 		Assert.assertEquals(BigDecimal.TEN, leilao.getLances().get(0).getValor());
@@ -66,12 +67,12 @@ public class PropondoLanceSteps {
 		
 	}
 	
-	@Quando(" propoe varios lances ao leilao")
+	@Quando("propoe varios lances ao leilao")
 	public void quando_propoe_varios_lances_ao_leilao() {
 		this.lista.forEach(lance -> leilao.propoe(lance));
 	}
 	
-	@Entao(" os lances sao aceitos")
+	@Entao("os lances sao aceitos")
 	public void entao_os_lances_sao_aceitos() {
 		Assert.assertEquals(this.lista.size(), leilao.getLances().size());
 		Assert.assertEquals(this.lista.get(0).getValor(), leilao.getLances().get(0).getValor());
