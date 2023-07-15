@@ -20,3 +20,10 @@ Exemplos:
 	| valor | nomeUsuario |
 	|		0		| fulano 		|
 	|		-1	|	beltrano |
+	
+	
+Cenario: Propondo uma sequencia de lances
+	Dado um lance de 10.0 reais do usuario "fulano"
+	E um lance de 15.0 reais do usuario "fulano"
+	Quando propoe varios lances ao leilao
+	Entao o segundo lances nao e aceitos
