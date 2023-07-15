@@ -2,12 +2,15 @@ package br.com.alura.leilao.acceptance.steps;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.Assert;
 
 import br.com.alura.leilao.model.Lance;
 import br.com.alura.leilao.model.Leilao;
 import br.com.alura.leilao.model.Usuario;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.pt.Dado;
@@ -91,15 +94,12 @@ public class PropondoLanceSteps {
 	}
 	
 	@Dado("dois lances")
-	public void dois_lances(io.cucumber.datatable.DataTable dataTable) {
-	    // Write code here that turns the phrase above into concrete actions
-	    // For automatic transformation, change DataTable to one of
-	    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-	    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-	    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-	    //
-	    // For other transformations you can register a DataTableType.
-	    throw new io.cucumber.java.PendingException();
+	public void dois_lances(DataTable dataTable) {
+
+		List<Map<String, String>> valores = dataTable.asMaps();
+		for (Map<String, String> mapa : valores) {
+			System.out.println(mapa.keySet());
+		}
 	}
 	
 	@Entao("o segundo lances nao e aceitos")
