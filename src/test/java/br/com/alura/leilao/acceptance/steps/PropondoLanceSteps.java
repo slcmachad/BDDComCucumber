@@ -98,7 +98,13 @@ public class PropondoLanceSteps {
 
 		List<Map<String, String>> valores = dataTable.asMaps();
 		for (Map<String, String> mapa : valores) {
-			System.out.println(mapa.keySet());
+			
+			String valor = mapa.get("valor");
+			String nome = mapa.get("nomeUsuario");
+			
+			Lance lance = new Lance(new Usuario(nome),new BigDecimal( valor));
+			lista.add(lance);
+			
 		}
 	}
 	
