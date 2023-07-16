@@ -41,10 +41,6 @@ public class LoginPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(),'Todos leilões')]")));
 	}
 
-	public boolean estaNaPaginaDeLoginComErro() {
-		System.out.println(this.driver.getCurrentUrl());
-		return this.driver.getCurrentUrl().endsWith("/login") 
-				|| this.driver.getCurrentUrl().endsWith("/login?error");
-	}
+	
 
 }

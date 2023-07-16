@@ -29,6 +29,12 @@ public class LeiloesPage {
 	public boolean estaNaPaginaDeLeiloes() {
 		return this.driver.getCurrentUrl().endsWith("/leiloes");
 	}
+	
+	public boolean estaNaPaginaDeLoginComErro() {
+		System.out.println(this.driver.getCurrentUrl());
+		return this.driver.getCurrentUrl().endsWith("/login") 
+				|| this.driver.getCurrentUrl().endsWith("/login?error");
+	}
 
 	public NovoLeilaoPage visitaPaginaParaCriarUmNovoLeilao() {
 		

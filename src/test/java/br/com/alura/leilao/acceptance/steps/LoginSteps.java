@@ -34,14 +34,18 @@ public class LoginSteps {
 	
 	@Dado("o usuario invalido")
 	public void o_usuario_invalido() {
-		
+		browser = new Browser();
+		browser.seed();
+		loginPage = browser.getLoginPage();
 	}
 
 	@Quando("tenta se logar")
 	public void tenta_se_logar() {
+		leiloesPage = this.loginPage.realizaLoginComo("fula", "poss");	
 	}
 
 	@Entao("continua na página de login")
 	public void continua_na_página_de_login() {
+		Assert.assertTrue(this.leiloesPage.estaNaPaginaDeLoginComErro());
 	}
 }
