@@ -30,6 +30,7 @@ public class LoginSteps {
 	@Entao("é redirecionado para a pagina de leiloes")
 	public void é_redirecionado_para_a_pagina_de_leiloes() {
 		Assert.assertTrue(this.leiloesPage.estaNaPaginaDeLeiloes());
+		
 	}
 	
 	@Dado("o usuario invalido")
