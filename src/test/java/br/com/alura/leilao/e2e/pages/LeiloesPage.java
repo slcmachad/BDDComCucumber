@@ -27,6 +27,7 @@ public class LeiloesPage {
 	}
 	
 	public boolean estaNaPaginaDeLeiloes() {
+		esperaCarregarPaginaDeLeiloes();
 		return this.driver.getCurrentUrl().endsWith("/leiloes");
 	}
 	
