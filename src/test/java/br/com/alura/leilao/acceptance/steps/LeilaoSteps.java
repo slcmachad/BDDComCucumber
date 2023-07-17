@@ -22,7 +22,7 @@ public class LeilaoSteps {
 
 	@Quando("acessa a pagina de novo leilao")
 	public void acessa_a_pagina_de_novo_leilao() {
-		
+		this.leiloesPage.visitaPaginaParaCriarUmNovoLeilao();
 	}
 	
 	@Quando("prenche o formulario com dados validos")
