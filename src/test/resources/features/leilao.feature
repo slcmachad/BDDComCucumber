@@ -1,6 +1,6 @@
 # language: pt
 
-
+@leilao
 Funcionalidade: Cadastrando um leilao
 
   Cenario: Um usuario logado pode cadastrar um leilao
